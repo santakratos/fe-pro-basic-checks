@@ -118,4 +118,5 @@ export const consoleLoggerWordsWhile = (string) => {
 export const consoleLoggerWordsSplit = (string) => {
   string.split('').forEach(element => {
     console.log(element);
-};
+  });
+}
