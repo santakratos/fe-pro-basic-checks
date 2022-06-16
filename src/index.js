@@ -34,17 +34,9 @@ export const reducerIf = function(action, string) {
   } else if (action === 'lowercase') {
     return string.toLowerCase();
   } else if (action === 'fence') {
-    let rewriteString = '';
-    for (let i = 0; i < string.length; i++) {
-      if (i % 2 === 1) {
-        rewriteString = `${rewriteString}${string[i].toUpperCase()}`;
-      } else {
-        rewriteString = `${rewriteString}${string[i].toLowerCase()}`;
-      }
-    }
-    return rewriteString;
+    return fenceString(string);
   } else if (action === 'capitalize') {
-    return string.split(' ').map((word) => `${word[0].toUpperCase()}${word.slice(1).toLowerCase()}`).join(' ');
+    return capitalizeString(string);
   } else {
     return string;
   }
@@ -63,17 +55,9 @@ export const reducerSwitch = (action, string) => {
     case 'lowercase':
       return string.toLowerCase();
     case 'fence':
-      let rewriteString = '';
-      for (let i = 0; i < string.length; i++) {
-        if (i % 2 === 1) {
-          rewriteString = `${rewriteString}${string[i].toUpperCase()}`;
-        } else {
-          rewriteString = `${rewriteString}${string[i].toLowerCase()}`;
-        }
-      }
-      return rewriteString;
+      return fenceString(string);
     case 'capitalize':
-      return string.split(' ').map((word) => `${word[0].toUpperCase()}${word.slice(1).toLowerCase()}`).join(' ');
+      return capitalizeString(string);
     default:
       return string;
   }
